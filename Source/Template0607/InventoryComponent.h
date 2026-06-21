@@ -30,11 +30,12 @@ public:
 	void OnPressPickup();
 	UFUNCTION()
 	void OnPressDrop();
-	
+	UFUNCTION(BlueprintCallable)
 	void AddItem(AActor* InActor);
 	void DropItem(AActor* InActor);
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<AWeapon*> Weapons;
 		
 };

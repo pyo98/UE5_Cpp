@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Weapon.h"
 #include "WeaponComponent.generated.h"
 
 
@@ -24,5 +25,20 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+public:
+	UFUNCTION()
+	void RequestFire();
+	UFUNCTION()
+	void RequestUnEquipWeapon();
+	UFUNCTION()
+	void RequestEquipWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	void EquipWeapon(AWeapon* InWeapon);
+
+	void UnEquipWeapon(AWeapon* InWeapon);
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AWeapon* WeaponRef;
 };
